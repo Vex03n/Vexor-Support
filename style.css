@@ -1,0 +1,714 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+:root {
+    --bg: #050809;
+    --card: #081213;
+    --a: #10cfc7;
+    --text: #f2ffff;
+    --muted: #8ea2a2;
+    --border: #10cfc733;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #050809;
+    color: var(--text);
+    font-family: Cairo, Arial, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* =========================
+   النجوم المتحركة
+   ========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(1px 1px at 5% 10%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 12% 35%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 18% 75%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 25% 20%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 31% 60%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 38% 88%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 44% 42%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 51% 12%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 57% 70%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 63% 30%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 69% 82%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 75% 48%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 81% 15%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 87% 65%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 93% 38%, #10cfc7 100%, transparent),
+        radial-gradient(1px 1px at 97% 90%, #10cfc7 100%, transparent);
+
+    background-size: 300px 300px;
+    opacity: 0.55;
+
+    animation: starsDown 35s linear infinite;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(1.5px 1.5px at 8% 55%, #10cfc7 100%, transparent),
+        radial-gradient(1.5px 1.5px at 22% 90%, #10cfc7 100%, transparent),
+        radial-gradient(1.5px 1.5px at 35% 15%, #10cfc7 100%, transparent),
+        radial-gradient(1.5px 1.5px at 48% 78%, #10cfc7 100%, transparent),
+        radial-gradient(1.5px 1.5px at 61% 52%, #10cfc7 100%, transparent),
+        radial-gradient(1.5px 1.5px at 73% 8%, #10cfc7 100%, transparent),
+        radial-gradient(1.5px 1.5px at 84% 92%, #10cfc7 100%, transparent),
+        radial-gradient(1.5px 1.5px at 95% 22%, #10cfc7 100%, transparent);
+
+    background-size: 450px 450px;
+    opacity: 0.35;
+
+    animation: starsUp 50s linear infinite;
+}
+
+@keyframes starsDown {
+    from {
+        background-position: 0 -300px;
+    }
+
+    to {
+        background-position: 0 300px;
+    }
+}
+
+@keyframes starsUp {
+    from {
+        background-position: 0 450px;
+    }
+
+    to {
+        background-position: 0 -450px;
+    }
+}
+
+
+/* =========================
+   الروابط
+   ========================= */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   الهيدر
+   ========================= */
+
+header {
+    height: 76px;
+    border-bottom: 1px solid #10cfc733;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    position: sticky;
+    top: 0;
+    background: #050809e8;
+    backdrop-filter: blur(14px);
+    box-shadow:
+        0 0 25px #10cfc70d,
+        inset 0 -1px 0 #10cfc712;
+    z-index: 5;
+}
+
+
+/* =========================
+   الشعار
+   ========================= */
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo i {
+    font-style: normal;
+    color: #001413;
+    background: var(--a);
+    padding: 5px 9px;
+    border-radius: 9px;
+    margin-left: 7px;
+    box-shadow:
+        0 0 18px #10cfc755;
+}
+
+
+/* =========================
+   القائمة
+   ========================= */
+
+nav {
+    display: flex;
+    gap: 28px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+nav a {
+    transition: .2s;
+}
+
+nav a:hover {
+    color: var(--a);
+    text-shadow:
+        0 0 10px #10cfc777;
+}
+
+
+/* =========================
+   المحتوى الرئيسي
+   ========================= */
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 24px 80px;
+}
+
+
+/* =========================
+   القسم الرئيسي
+   ========================= */
+
+.hero {
+    text-align: center;
+    padding: 50px 125px 45px;
+}
+
+.hero.sub {
+    padding: 55px 10px 50px;
+}
+
+
+/* =========================
+   العلامة
+   ========================= */
+
+.tag {
+    display: inline-block;
+    color: var(--a);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    border: 1px solid #10cfc755;
+    background: #10cfc710;
+    border-radius: 999px;
+    padding: 7px 14px;
+    box-shadow:
+        0 0 20px #10cfc70d;
+}
+
+
+/* =========================
+   العنوان
+   ========================= */
+
+.hero h1 {
+    font-size: 52px;
+    line-height: 1.2;
+    margin: 22px 0 12px;
+    text-shadow:
+        0 0 25px #10cfc71a;
+}
+
+.hero h1 b {
+    color: var(--a);
+}
+
+.hero p {
+    color: var(--muted);
+    margin: 0;
+}
+
+
+/* =========================
+   زر العودة
+   ========================= */
+
+.back {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 28px;
+    transition: .2s;
+}
+
+.back:hover {
+    color: var(--a);
+    text-shadow:
+        0 0 10px #10cfc755;
+}
+
+
+/* =========================
+   عنوان الأقسام
+   ========================= */
+
+.title {
+    display: flex;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 22px;
+}
+
+.title small {
+    color: var(--a);
+}
+
+.title h2 {
+    margin: 3px 0 0;
+    font-size: 28px;
+}
+
+.title hr {
+    flex: 1;
+    border: 0;
+    border-top: 1px solid #10cfc733;
+}
+
+
+/* =========================
+   شبكة الألعاب
+   ========================= */
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+
+/* =========================
+   كروت الألعاب
+   ========================= */
+
+.game {
+    display: block;
+    border: 1px solid #10cfc733;
+    background:
+        linear-gradient(
+            145deg,
+            #10cfc70a,
+            #081213 45%,
+            #050809
+        );
+    border-radius: 14px;
+    overflow: hidden;
+    transition: .25s;
+    box-shadow:
+        0 0 0 1px #10cfc705,
+        0 8px 30px #00000055;
+}
+
+.game:hover {
+    transform: translateY(-5px);
+    border-color: #10cfc788;
+    box-shadow:
+        0 0 25px #10cfc71c,
+        0 12px 35px #00000077;
+}
+
+
+/* =========================
+   صورة اللعبة
+   ========================= */
+
+.cover {
+    height: 150px;
+    background: #081213;
+    display: flex;
+    align-items: end;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            #05080999,
+            transparent 60%
+        );
+    pointer-events: none;
+}
+
+.cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: .3s;
+}
+
+.game:hover .cover img {
+    transform: scale(1.03);
+}
+
+.cover span {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--a);
+}
+
+
+/* =========================
+   معلومات اللعبة
+   ========================= */
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 16px;
+}
+
+.game-info h3 {
+    margin: 0 0 3px;
+    font-size: 17px;
+}
+
+.game-info p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.game-info strong {
+    font-size: 20px;
+    color: var(--a);
+    transition: .2s;
+}
+
+.game:hover .game-info strong {
+    transform: translateX(-4px);
+    text-shadow:
+        0 0 12px #10cfc788;
+}
+
+
+/* =========================
+   الأقسام القادمة
+   ========================= */
+
+.soon {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.soon > div {
+    border: 1px solid #10cfc733;
+    border-radius: 14px;
+    padding: 20px;
+    color: var(--muted);
+    text-align: center;
+    background: #081213;
+    transition: .2s;
+}
+
+.soon > div:hover {
+    border-color: #10cfc766;
+    box-shadow:
+        0 0 20px #10cfc714;
+}
+
+.soon b {
+    color: #dce8e8;
+}
+
+
+/* =========================
+   كروت الشروحات
+   ========================= */
+
+.guides {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.guides a {
+    position: relative;
+    min-height: 230px;
+    padding: 25px;
+    border: 1px solid #10cfc733;
+    background:
+        linear-gradient(
+            145deg,
+            #10cfc709,
+            #081213 50%,
+            #050809
+        );
+    border-radius: 16px;
+    transition: .25s;
+    box-shadow:
+        0 8px 30px #00000044;
+}
+
+.guides a:hover {
+    transform: translateY(-5px);
+    border-color: #10cfc777;
+    box-shadow:
+        0 0 25px #10cfc71a,
+        0 12px 35px #00000066;
+}
+
+.guides em {
+    font-style: normal;
+    color: var(--a);
+    font-size: 12px;
+    font-weight: 800;
+    text-shadow:
+        0 0 10px #10cfc755;
+}
+
+.guides h2 {
+    margin: 35px 0 8px;
+    font-size: 21px;
+}
+
+.guides p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.guides b {
+    position: absolute;
+    bottom: 22px;
+    left: 25px;
+    color: var(--a);
+    transition: .2s;
+}
+
+.guides a:hover b {
+    transform: translateX(-5px);
+    text-shadow:
+        0 0 12px #10cfc788;
+}
+
+
+/* =========================
+   المقالات
+   ========================= */
+
+.article {
+    max-width: 850px;
+    margin: auto;
+}
+
+.article article {
+    padding: 30px 0;
+    border-bottom: 1px solid #10cfc72b;
+}
+
+.article small {
+    color: var(--a);
+    font-weight: 800;
+}
+
+.article h2 {
+    margin: 8px 0 12px;
+    font-size: 26px;
+}
+
+.article p {
+    color: #b8c8c8;
+    line-height: 2;
+    font-size: 15px;
+}
+
+.article strong {
+    color: var(--a);
+}
+
+
+/* =========================
+   الفيديو
+   ========================= */
+
+.video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-top: 24px;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid #10cfc744;
+    background: #000;
+    box-shadow:
+        0 0 25px #10cfc710;
+}
+
+.video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* =========================
+   صندوق الحل
+   ========================= */
+
+.solution {
+    margin-top: 20px;
+    padding: 20px;
+    border-right: 3px solid var(--a);
+    background:
+        linear-gradient(
+            90deg,
+            #10cfc708,
+            #10cfc713
+        );
+    border-radius: 10px;
+    color: #c6d4d4;
+    box-shadow:
+        0 0 20px #10cfc708;
+}
+
+
+/* =========================
+   الصور
+   ========================= */
+
+.guide-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 24px;
+}
+
+.guide-images .guide-image {
+    width: 100%;
+    margin: 0;
+}
+
+.guide-image {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 24px auto 0;
+    border-radius: 14px;
+    border: 1px solid #10cfc733;
+    box-shadow:
+        0 0 25px #10cfc70d;
+}
+
+.article img {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.article img:hover {
+    transform: scale(1.08);
+}
+
+.image-fullscreen {
+    position: fixed;
+    inset: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    object-fit: contain;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    cursor: zoom-out;
+    padding: 20px;
+}
+
+
+/* =========================
+   الأساسيات
+   ========================= */
+
+#basics {
+    margin-bottom: 100px;
+}
+
+
+/* =========================
+   الفوتر
+   ========================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #10cfc72b;
+    color: #617171;
+    font-size: 12px;
+}
+
+
+/* =========================
+   الجوال
+   ========================= */
+
+@media (max-width: px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .guides,
+    .soon {
+        grid-template-columns: 1fr;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cover {
+        height: 200px;
+    }
+
+    .guide-images {
+        grid-template-columns: 1fr;
+    }
+}
